@@ -1,0 +1,16 @@
+name: magic-cards
+services:
+  magic-cards:
+    container_name: magic-cards
+    restart: always
+    ports:
+      - "5000:5000"
+    volumes:
+      - "./config:/usr/src/app/config"
+    devices:
+      - "/dev/input/event0"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: qnimbus/magic-cards:1.0
+    platform: linux/arm64
